@@ -1,0 +1,222 @@
+<!-- {% load static %}
+
+<html>
+<head>
+    <title>AI Sugarcane</title>
+</head>
+
+<body>
+
+<img src="{% static 'images/logo.png' %}" alt="Logo">
+
+<h1>AI Sugarcane</h1>
+
+<a href="{% url 'register' %}">
+    <button>Get Started</button>
+</a>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Sugarcane Disease Prediction System</title>
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="{% static 'images/logo.png' %}" alt="Logo">
+
+<div>
+
+<h2>AI Sugarcane</h2>
+
+<p>Smart Farming, Better Future</p>
+
+</div>
+
+</div>
+
+<ul class="menu">
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">About</a></li>
+
+<li><a href="#">Features</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+<div class="buttons">
+
+<a href="{% url 'login' %}" class="login-btn">
+<i class="fas fa-lock"></i> Login
+</a>
+
+<a href="{% url 'register' %}" class="register-btn">
+<i class="fas fa-user-plus"></i> Register
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="overlay">
+
+<div class="hero-content">
+
+<h1>AI Sugarcane Disease Prediction and Advisory System</h1>
+
+<p>
+
+Predict sugarcane diseases at an early stage using Artificial Intelligence,
+Weather API and Smart Advisory System for better crop management and higher yield.
+
+</p>
+
+<div class="points">
+
+<span>✔ AI Powered</span>
+
+<span>✔ Smart Advisory</span>
+
+<span>✔ Better Yield</span>
+
+
+<a href="{% url 'register' %}" class="hero-btn">Get Started</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+<h2>Our Key Features</h2>
+
+<div class="feature-container">
+
+<div class="card">
+<i class="fas fa-seedling"></i>
+<h3>Early Disease Prediction</h3>
+<p>
+Detect sugarcane diseases at an early stage using AI and Machine Learning.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-cloud-sun-rain"></i>
+<h3>Weather Analysis</h3>
+<p>
+Real-time weather information helps predict disease occurrence.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-flask"></i>
+<h3>Smart AI Advisory</h3>
+<p>
+Receive AI-powered recommendations for better crop management.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-leaf"></i>
+<h3>Crop Monitoring</h3>
+<p>
+Monitor crop health and improve productivity with smart technology.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+<h2>About Our Project</h2>
+
+<p>
+
+AI Sugarcane Disease Prediction and Advisory System is an intelligent web application that helps farmers identify sugarcane diseases, analyze weather conditions, and receive smart advisory recommendations for improved crop health and better yield.
+
+</p>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+<div class="contact-box">
+    <h2>Contact Us</h2>
+
+<p><i class="fas fa-phone"></i> +91 9876543210</p>
+
+<p><i class="fas fa-envelope"></i> aisugarcane@gmail.com</p>
+
+<p><i class="fas fa-map-marker-alt"></i> Maharashtra, India</p>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+
+© 2026 AI Sugarcane Disease Prediction and Advisory System
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

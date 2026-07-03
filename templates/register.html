@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Registration</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h2>🌾 Farmer Registration</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Farmer Name">
+
+        <input type="text" name="username" placeholder="Username">
+
+        <input type="text" name="mobile" placeholder="Mobile Number">
+
+        <input type="text" name="village" placeholder="Village">
+
+        <input type="password" name="password" placeholder="Password">
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+    <p style="text-align:center; margin-top:15px;">
+        Already have an account?
+        <a href="{% url 'login' %}">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

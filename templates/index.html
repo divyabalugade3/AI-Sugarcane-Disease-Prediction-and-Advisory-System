@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Sugarcane</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2>🌱 AI Sugarcane</h2>
+        
+
+
+        <div>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+
+    </nav>
+
+
+    <section class="home">
+
+        <h1>
+            AI Sugarcane Disease Prediction
+            and Advisory System
+        </h1>
+
+        <p>
+            Smart farming solution using Artificial Intelligence
+            for early disease prediction and better crop management.
+        </p>
+
+
+        <a class="btn" href="{% url 'register' %}">
+            Get Started
+        </a>
+
+    </section>
+
+
+</body>
+</html>

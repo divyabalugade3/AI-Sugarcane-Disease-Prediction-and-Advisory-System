@@ -1,0 +1,104 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="form-container">
+
+    <h1>🌱 Smart Sugarcane Health Prediction System</h1>
+
+    <div style="text-align:right; margin-bottom:15px;">
+        <a href="{% url 'logout' %}" class="btn">🚪 Logout</a>
+    </div>
+
+
+    <h2>🌾 Farm & Crop Details</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Village:</label>
+        <input type="text" name="village" required>
+
+        <label>Sugarcane Variety:</label>
+        <select name="variety" required>
+            <option>Co 86032</option>
+            <option>CoM 0265</option>
+            <option>Co 0238</option>
+            <option>Co 11015</option>
+            <option>VSI 8005</option>
+            <option>Co 740</option>
+            <option>Co 7219</option>
+            <option>Co 92005</option>
+            <option>Co 99004</option>
+            <option>VSI 08005</option>
+        </select>
+
+        <label>Planting Date:</label>
+        <input type="date" name="planting_date" required>
+
+        <label>Plant Age (Months):</label>
+        <input type="number" name="plant_age" min="1" max="24" placeholder="Enter Plant Age" required>
+
+        <label>Soil Type:</label>
+        <select name="soil" required>
+            <option>Black Soil</option>
+            <option>Loamy Soil</option>
+            <option>Alluvial Soil</option>
+        </select>
+
+        <label>Irrigation Method:</label>
+        <select name="irrigation" required>
+            <option>Flood</option>
+            <option>Furrow</option>
+            <option>Drip</option>
+            <option>Sprinkler</option>
+        </select>
+
+        <label>Water Stagnation:</label>
+        <select name="water" required>
+            <option>No</option>
+            <option>Yes</option>
+        </select>
+
+        <label>Previous Season Disease:</label>
+        <select name="previous_disease" required>
+            <option>No</option>
+            <option>Yes</option>
+        </select>
+
+        <label>Leaf Color:</label>
+        <select name="leaf_color" required>
+            <option>Healthy Green</option>
+            <option>Light Green</option>
+            <option>Yellow</option>
+            <option>Brown</option>
+            <option>Black</option>
+        </select>
+
+        <label>Pest Infestation:</label>
+        <select name="pest" required>
+            <option>No</option>
+            <option>Yes</option>
+        </select>
+
+        <label>Area (Acre):</label>
+        <input type="number" name="area" step="0.1" placeholder="Enter Area" required>
+
+        <h2>🌦 Weather API Data</h2>
+
+        <label>Temperature (°C):</label>
+        <input type="text" name="temperature" value="31" readonly>
+
+        <label>Humidity (%):</label>
+        <input type="text" name="humidity" value="87" readonly>
+
+        <label>Rainfall:</label>
+        <input type="text" name="rainfall" value="Heavy Rain" readonly>
+
+        <button type="submit">
+            Predict Disease
+        </button>
+
+    </form>
+
+</div>
