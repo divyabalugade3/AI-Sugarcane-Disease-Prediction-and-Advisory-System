@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .models import Farmer
+import requests
 
 
 # Home Page
@@ -61,36 +62,78 @@ def login(request):
 # Farmer Input
 def farmer_input(request):
 
-    # Login Check
     if 'farmer_id' not in request.session:
         return redirect('login')
 
+    weather = None
+
     if request.method == "POST":
+
+        village = request.POST.get('village')
+
+        weather = get_weather(village)
 
         water = request.POST.get('water')
         previous_disease = request.POST.get('previous_disease')
         leaf_color = request.POST.get('leaf_color')
         pest = request.POST.get('pest')
-        humidity = int(request.POST.get('humidity', 0))
+
+        
+        humidity = weather["humidity"] if weather else 0
+        temp = weather["temp"] if weather else 0
 
         disease = "Healthy Crop"
         advice = "Continue regular farming practices."
 
+        # SMART AI LOGIC (improved)
         if (
             water == "Yes"
             or humidity > 80
+            or temp > 35
             or leaf_color == "Light Green"
             or pest == "Yes"
         ):
-            disease = "Disease Risk Detected"
-            advice = "Check crop regularly and take preventive measures."
+            disease = "⚠ Disease Risk Detected"
+
+            if humidity > 80:
+                advice = "High humidity → Fungal disease risk. Spray fungicide."
+            elif temp > 35:
+                advice = "High temperature → Irrigation needed."
+            else:
+                advice = "Check crop regularly and take preventive measures."
 
         return render(request, 'result.html', {
             'disease': disease,
-            'advice': advice
+            'advice': advice,
+            'weather': weather
         })
 
-    return render(request, 'farmer_input.html')
+    return render(request, 'farmer_input.html', {
+        'weather': weather
+    })
+
+
+def get_weather(village):
+
+    api_key = "7ac0f0f6d235880b280ea11251e92e5a"
+
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={village},IN&appid={api_key}&units=metric"
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+
+        data = response.json()
+
+        return {
+            "temp": data["main"]["temp"],
+            "humidity": data["main"]["humidity"],
+            "weather": data["weather"][0]["main"],
+            "description": data["weather"][0]["description"],
+        }
+
+    return None
+
 
 
 # Logout

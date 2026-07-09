@@ -87,14 +87,14 @@
         <h2>🌦 Weather API Data</h2>
 
         <label>Temperature (°C):</label>
-        <input type="text" name="temperature" value="31" readonly>
+        <input type="text" name="temperature" value="{{ weather.temp }}" readonly>
 
         <label>Humidity (%):</label>
-        <input type="text" name="humidity" value="87" readonly>
+        <input type="text" name="humidity" value="{{ weather.humidity }}" readonly>
 
-        <label>Rainfall:</label>
-        <input type="text" name="rainfall" value="Heavy Rain" readonly>
-
+        <label>Weather:</label>
+        <input type="text" name="weather" value="{{ weather.description }}" readonly>
+        
         <button type="submit">
             Predict Disease
         </button>

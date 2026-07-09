@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Prediction Result</title>
-</head>
+<h2>🌱 Prediction Result</h2>
 
-<body>
+<p><b>Disease:</b> {{ disease }}</p>
 
-<h1>Prediction Result</h1>
+<p><b>Advice:</b> {{ advice }}</p>
 
-<h2>{{ disease }}</h2>
+<hr>
 
-<p>
-{{ advice }}
-</p>
+{% if weather %}
 
-<a href="{% url 'farmer_input' %}">
-Enter New Data
-</a>
+<div class="weather-box">
 
-</body>
-</html>
+<h2>🌦 Current Weather</h2>
+
+<p>🌡 Temperature : {{ weather.temp }} °C</p>
+
+<p>💧 Humidity : {{ weather.humidity }} %</p>
+
+<p>☁ Weather : {{ weather.weather }}</p>
+
+<p>📝 Description : {{ weather.description }}</p>
+
+</div>
+
+{% endif %}

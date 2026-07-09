@@ -449,3 +449,22 @@ footer{
 .btn:hover{
     background:#b02a37;
 }
+
+
+
+.weather-box{
+    width:350px;
+    margin:20px auto;
+    padding:20px;
+    background:#e8f5e9;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.weather-box h2{
+    color:green;
+}
+
+.weather-box p{
+    font-size:18px;
+}
