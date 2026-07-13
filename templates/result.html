@@ -1,25 +1,160 @@
-<h2>🌱 Prediction Result</h2>
 
-<p><b>Disease:</b> {{ disease }}</p>
 
-<p><b>Advice:</b> {{ advice }}</p>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+<body>
 
-<hr>
+<div class="result-box">
 
-{% if weather %}
+    <h1>🌱 Smart Sugarcane Health Prediction System</h1>
 
-<div class="weather-box">
+    <h2>🦠 Disease Prediction</h2>
 
-<h2>🌦 Current Weather</h2>
+    <h3>{{ disease }}</h3>
 
-<p>🌡 Temperature : {{ weather.temp }} °C</p>
+    <p><b>Advice:</b> {{ advice }}</p>
 
-<p>💧 Humidity : {{ weather.humidity }} %</p>
+    {% if weather %}
 
-<p>☁ Weather : {{ weather.weather }}</p>
 
-<p>📝 Description : {{ weather.description }}</p>
+    <h2>🌦️ Current Weather</h2>
+
+    <p><b>🌡️ Temperature :</b> {{ weather.temp }} °C</p>
+
+    <p><b>💧 Humidity :</b> {{ weather.humidity }} %</p>
+
+    <p><b>🌧️ Rainfall :</b> {{ weather.rainfall }} mm</p>
+
+    <p><b>☁️ Weather :</b> {{ weather.weather }}</p>
+
+    <hr>
+
+    <h2>📅 7 Days Weather Forecast</h2>
+
+    <table border="1" width="100%" cellpadding="8">
+
+        <tr>
+            <th>Date</th>
+            <th>Max Temp</th>
+            <th>Min Temp</th>
+            <th>Weather</th>
+        </tr>
+
+        {% for day in weather.forecast %}
+
+        <tr>
+
+            <td>{{ day.date }}</td>
+
+            <td>{{ day.values.temperatureMax }} °C</td>
+
+            <td>{{ day.values.temperatureMin }} °C</td>
+
+            <td>{{weather.weather}}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+    <hr>
+
+        <h2>🌿 Disease Details</h2>
+
+        <p><b>Disease Name :</b> {{ disease_name }}</p>
+
+        <p><b>Risk Level :</b> {{ risk }}</p>
+
+        <p><b>Probability Score :</b> {{ probability }} %</p>
+
+        <p><b>Crop Health Score :</b> {{ crop_health }}/100</p>
+    
+    <hr>
+
+        <h2>🌾 Weather Impact Analysis</h2>
+
+        <p>{{ weather_impact }}</p>
+
+    <hr>
+
+    <hr>
+
+    <h2>🧪 NPK Recommendation</h2>
+
+    <table border="1" width="100%" cellpadding="8">
+
+        <tr>
+        <th>Nutrient</th>
+        <th>Recommended Quantity</th>
+        </tr>
+
+        <tr>
+        <td>Nitrogen (N)</td>
+        <td>{{ nitrogen }}</td>
+        </tr>
+
+        <tr>
+        <td>Phosphorus (P)</td>
+        <td>{{ phosphorus }}</td>
+        </tr>
+
+        <tr>
+        <td>Potassium (K)</td>
+        <td>{{ potassium }}</td>
+        </tr>
+
+    </table>
+
+    <hr>
+
+    <h2>💊 Fertilizer Application Advisory</h2>
+
+    <p>{{ fertilizer }}</p>
+
+    <hr>
+
+    <h2>💡 Smart Advisory</h2>
+
+    <ul>
+
+    <li>{{ advice }}</li>
+
+    <li>Monitor crop regularly.</li>
+
+    <li>Avoid over-irrigation.</li>
+
+    <li>Follow recommended fertilizer schedule.</li>
+
+    </ul>
+
+
+    <hr>
+
+    <a href="#" class="btn">
+    📄 Download Report
+    </a>
+
+    <a href="{% url 'farmer_input' %}" class="btn">
+        🔙 Predict Again
+    </a>
 
 </div>
 
-{% endif %}
+</body>
+</html>  
+
+
+
+
+
+
+
+     
+       
